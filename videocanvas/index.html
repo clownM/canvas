@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Video</title>
+        <style>
+            canvas{
+                background: #ccc;
+                margin-right: 15px;
+                border: 1px solid;
+            }
+            input{
+                position: relative;
+                top: 6px;
+            }
+            input:last-of-type{
+                left: 31px;
+            }
+        </style>
+    </head>
+    <body>
+        <video id = "myvideo" hidden>
+            <source src="Zombies.mp4">    
+        </video>
+        
+        <canvas id = "mycanvas" width="700" height="450">
+        </canvas>
+        
+        <br>
+        <canvas width="120" height="60"></canvas>
+        <canvas width="120" height="60"></canvas>
+        <canvas width="120" height="60"></canvas>
+        <canvas width="120" height="60"></canvas>
+        <canvas width="120" height="60"></canvas>
+
+        
+        <br>
+        <label for="range">进度条君：</label>
+        <input type="range" id = "range" max="100" step="1" value="0">
+        <br>
+        <label for="volume">音量：</label>
+        <input type="range" id = "volume" max="100" step="1">
+        
+        <br>
+        <p>视频总时长：<span></span>s</p>
+        
+        <p>当前&nbsp时长：<span>0</span>S</p>
+        <script src="index.js"></script>
+    </body>
+</html>
