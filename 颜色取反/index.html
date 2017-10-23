@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #mycanvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mycanvas" width="800px" height="500px"></canvas>
+    <script>
+        (function(){
+            var canvas = document.getElementById("mycanvas");
+            var ctx = canvas.getContext("2d");
+            
+            var img = new Image();
+            img.src = "res/cat1.jpg";
+            img.onload = function(){
+                ctx.drawImage(img,10,10,300,300);
+                var drawing = ctx.getImageData(10,10,300,300);
+                console.log(drawing.data);
+                for(var i = 0; i < drawing.data.length;i+=4){
+                    drawing.data[i] = 255 - drawing.data[i];
+                    drawing.data[i+1] = 255 - drawing.data[i+1];
+                    drawing.data[i+2] = 255 - drawing.data[i+2];
+                };            
+                ctx.putImageData(drawing,350,10);
+            }
+           
+        })();
+    </script>
+</body>
+</html>
